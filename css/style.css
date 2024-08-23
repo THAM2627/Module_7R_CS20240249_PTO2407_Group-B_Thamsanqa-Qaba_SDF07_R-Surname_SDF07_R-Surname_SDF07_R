@@ -64,7 +64,7 @@
     /* Buttons */
 
     .btn{
-        display: inline-block;
+        display: flex;
         padding: .5em 2.5em;
         background: var(--clr--accent);
         color: var(--clr-dark);
@@ -75,6 +75,7 @@
         letter-spacing: 2px;
         font-weight: var(--fw--bold);
         transition: transform 200ms ease-in-out;
+        align-items: center;
 
     }
 
@@ -206,8 +207,9 @@
     }
 
     @media  (min-width:800px){
-        .services
-        {display: flex;
+        .services {
+        display: flex;
+        justify-content: center;
         max-width:1000px;
         margin-left: 0 auto;
         margin-right: auto;
@@ -218,3 +220,48 @@
         margin-left: 2em;
 
     }
+
+/* About me section */
+
+.about-me{
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.section__title--about,
+.section__subtitle--about{
+    grid-column: 1;
+}
+@media (min-width:600px){
+    .about-me{
+        display:grid;
+        grid-template-columns: 1fr 200px;
+        grid-template-areas: 
+        "title img"
+        "subtitile img"
+        "text img";
+        grid-column-gap: 2em;
+    }
+
+    .section__title--about{
+        grid-area: title;
+    }
+
+    .section__subtitle--about{
+        grid-column: 1/-1;
+        grid-row: 2;
+        position: relative;
+        left: -2em;
+        width: calc(100% + 2em);
+        padding-left: 1em;
+        padding-right: calc(200px + 3em);
+    }
+
+    .about-me__img{
+        grid-row: 1/-1;
+        grid-column: 2;
+        position: relative;
+        z-index: 2;
+    }
+}
+
